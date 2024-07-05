@@ -1,0 +1,14 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <a href="#" onclick={seleccionarContacto}>
+        <lightning-layout vertical-align="center">
+            <lightning-layout-item>
+                <lightning-avatar size="medium" src={contacto.Picture__c} 
+                fallback-icon-name="custom:custom28"></lightning-avatar>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+                <p>{contacto.Name}</p>
+            </lightning-layout-item>
+        </lightning-layout>
+    </a>
+</template>

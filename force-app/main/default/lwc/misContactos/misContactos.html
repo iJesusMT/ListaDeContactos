@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title="Mis Contactos" icon-name="custom:custom9">
+        <lightning-layout class="slds-var-m-around_medium">
+            <lightning-layout-item flexibility="auto" padding="around-small">
+                <template lwc:if={hayContactos}>
+                    <template for:each={contactos.data} for:item="contacto">
+                        <c-un-contacto key={contacto.Id} 
+                            contacto={contacto} 
+                            onseleccionado={seleccionarContacto}>
+                        </c-un-contacto>
+                    </template>
+                </template>
+            </lightning-layout-item>
+            <lightning-layout-item flexibility="auto" padding="around-small" class="slds-var-m-around_medium">
+                <template lwc:if={contactoSeleccionado}>
+                    <lightning-avatar src={contactoSeleccionado.Picture__c}></lightning-avatar>
+                    <!-- <img src={contactoSeleccionado.Picture__c} style="width: 50px; border-radius: 50%;"/> -->
+                    <p>{contactoSeleccionado.Name}</p>
+                    <p>{contactoSeleccionado.Title}</p>
+                    <p><lightning-formatted-phone value={contactoSeleccionado.Phone}></lightning-formatted-phone></p>
+                    <p><lightning-formatted-email value={contactoSeleccionado.Email}></lightning-formatted-email></p>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>
